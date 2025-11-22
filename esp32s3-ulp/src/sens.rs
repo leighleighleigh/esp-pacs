@@ -14,6 +14,8 @@ pub struct RegisterBlock {
     sar_cocpu_int_ena: SAR_COCPU_INT_ENA,
     sar_cocpu_int_st: SAR_COCPU_INT_ST,
     sar_cocpu_int_clr: SAR_COCPU_INT_CLR,
+    _reserved9: [u8; 0x0c],
+    sar_peri_clk_gate_conf: SAR_PERI_CLK_GATE_CONF,
 }
 impl RegisterBlock {
     #[doc = "0x40 - configure i2c slave address"]
@@ -61,6 +63,11 @@ impl RegisterBlock {
     pub const fn sar_cocpu_int_clr(&self) -> &SAR_COCPU_INT_CLR {
         &self.sar_cocpu_int_clr
     }
+    #[doc = "0x104 - the peri clock gate of rtc peri"]
+    #[inline(always)]
+    pub const fn sar_peri_clk_gate_conf(&self) -> &SAR_PERI_CLK_GATE_CONF {
+        &self.sar_peri_clk_gate_conf
+    }
 }
 #[doc = "SAR_SLAVE_ADDR1 (rw) register accessor: configure i2c slave address\n\nYou can [`read`](crate::Reg::read) this register and get [`sar_slave_addr1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`sar_slave_addr1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@sar_slave_addr1`] module"]
 pub type SAR_SLAVE_ADDR1 = crate::Reg<sar_slave_addr1::SAR_SLAVE_ADDR1_SPEC>;
@@ -98,3 +105,7 @@ pub mod sar_cocpu_int_st;
 pub type SAR_COCPU_INT_CLR = crate::Reg<sar_cocpu_int_clr::SAR_COCPU_INT_CLR_SPEC>;
 #[doc = "the interrupt clear of ulp"]
 pub mod sar_cocpu_int_clr;
+#[doc = "SAR_PERI_CLK_GATE_CONF (rw) register accessor: the peri clock gate of rtc peri\n\nYou can [`read`](crate::Reg::read) this register and get [`sar_peri_clk_gate_conf::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`sar_peri_clk_gate_conf::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@sar_peri_clk_gate_conf`] module"]
+pub type SAR_PERI_CLK_GATE_CONF = crate::Reg<sar_peri_clk_gate_conf::SAR_PERI_CLK_GATE_CONF_SPEC>;
+#[doc = "the peri clock gate of rtc peri"]
+pub mod sar_peri_clk_gate_conf;
